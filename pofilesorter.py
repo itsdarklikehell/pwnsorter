@@ -5,7 +5,12 @@ wpa_source = "/etc/wpa_supplicant/wpa_supplicant.conf"
 wpa_backup = "/tmp/wpa_supplicant.bak"
 wpa_tmp = "/tmp/wpa_supplicant.tmp"
 potfile_source = '/home/rizzo/Downloads/wpa-sec.founds.potfile'
+dlurl = 'https://wpa-sec.stanev.org/?api&dl=1'
 
+def get_potfile():
+    print("Downloading potfile from: " + dlurl)
+    print('To: ' + potfile_source)
+    #urllib3.request.urlretrieve(dlurl, potfile_source)
 
 def backup_configs():
     if os.path.exists(wpa_tmp):
@@ -42,30 +47,31 @@ def readpotfiledata():
         print('Reading: ' + checkpotfile.name + ' Data.')
         for line in checkpotfile:
             potfiledata = line.split(':')
-            Latitude = potfiledata[0].rstrip()
-            Longitude = potfiledata[1].rstrip()
-            BSSID = potfiledata[2].rstrip()
-            WpaPassword = potfiledata[3].rstrip()
+            latitude = potfiledata[0].rstrip()
+            longitude = potfiledata[1].rstrip()
+            bssid = potfiledata[2].rstrip()
+            wpapassword = potfiledata[3].rstrip()
             print('FOUND:')
-            print('BSSID: ' + BSSID)
-            print('WpaPassword: ' + WpaPassword)
-            print('Latitude: ' + Latitude)
-            print('Longitude: ' + Longitude)
-            if checkwpaconfig(wpa_tmp, BSSID):
-                print(BSSID + ' Found, Skipping.')
+            print('BSSID: ' + bssid)
+            print('WpaPassword: ' + wpapassword)
+            print('Latitude: ' + latitude)
+            print('Longitude: ' + longitude)
+            if checkwpaconfig(wpa_tmp, bssid):
+                print(bssid + ' Found, Skipping.')
             else:
                 with open(wpa_tmp, 'a+') as outputfile:
-                    print('Found new network: ' + BSSID)
+                    print('Found new network: ' + bssid)
                     print('Appending to: ' + outputfile.name)
                     outputfile.writelines('\n')
                     outputfile.writelines('network={' + '\n')
                     outputfile.writelines('  scan_ssid=1' + '\n')
-                    outputfile.writelines('  ssid="' + BSSID + '"\n')
-                    outputfile.writelines('  psk="' + WpaPassword + '"\n')
+                    outputfile.writelines('  ssid="' + bssid + '"\n')
+                    outputfile.writelines('  psk="' + wpapassword + '"\n')
                     outputfile.writelines('}\n')
                     outputfile.writelines('\n')
 
 
+get_potfile()
 backup_configs()
 readpotfiledata()
 copy_config()
