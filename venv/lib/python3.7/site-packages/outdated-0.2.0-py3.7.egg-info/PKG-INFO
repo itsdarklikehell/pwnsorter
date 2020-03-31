@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: outdated
+Version: 0.2.0
+Summary: Check if a version of a PyPI package is outdated
+Home-page: https://github.com/alexmojaki/outdated
+Author: Alex Hall
+Author-email: alex.mojaki@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
