@@ -9,9 +9,9 @@ potfile_source = '/home/pi/wpa-sec.founds.potfile'
 dlurl = 'https://wpa-sec.stanev.org/?api&dl=1'
 
 def get_potfile():
-    print("Downloading potfile from: " + dlurl)
+    print("Download your potfile from: " + dlurl)
     print('To: ' + potfile_source)
-    urllib.request.urlretrieve(dlurl, potfile_source)
+    #urllib.request.urlretrieve(dlurl, potfile_source)
 
 def backup_configs():
     if os.path.exists(wpa_tmp):
