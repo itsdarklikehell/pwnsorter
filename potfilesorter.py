@@ -1,4 +1,5 @@
 import sys, os, subprocess
+import urllib.request
 from shutil import copyfile
 
 wpa_source = "/etc/wpa_supplicant/wpa_supplicant.conf"
@@ -10,7 +11,7 @@ dlurl = 'https://wpa-sec.stanev.org/?api&dl=1'
 def get_potfile():
     print("Downloading potfile from: " + dlurl)
     print('To: ' + potfile_source)
-    #urllib3.request.urlretrieve(dlurl, potfile_source)
+    urllib.request.urlretrieve(dlurl, potfile_source)
 
 def backup_configs():
     if os.path.exists(wpa_tmp):
