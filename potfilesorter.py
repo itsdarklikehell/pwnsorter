@@ -5,7 +5,7 @@ from shutil import copyfile
 wpa_source = "/etc/wpa_supplicant/wpa_supplicant.conf"
 wpa_backup = "/tmp/wpa_supplicant.bak"
 wpa_tmp = "/tmp/wpa_supplicant.tmp"
-potfile_source = '/home/rizzo/Downloads/wpa-sec.founds.potfile'
+potfile_source = '/home/pi/wpa-sec.founds.potfile'
 dlurl = 'https://wpa-sec.stanev.org/?api&dl=1'
 
 def get_potfile():
