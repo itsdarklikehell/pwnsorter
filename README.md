@@ -10,6 +10,8 @@ De ontwikkelhistorie van dit project in een film:
 
 <video src="https://raw.githubusercontent.com/itsdarklikehell/pwnsorter/master/gource.mp4" controls width="100%"></video>
 
+*Hover/click voor [Telegram-optimaliseerde versie](https://raw.githubusercontent.com/itsdarklikehell/pwnsorter/master/gource_telegram.mp4) (kleiner, 1.5MB)*
+
 *De video wordt automatisch gegenereerd door de [Gource workflow](.github/workflows/gource.yml) bij elke push.*
 
 Lokale video genereren:
