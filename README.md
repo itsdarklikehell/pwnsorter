@@ -1,4 +1,10 @@
 # pwnsorter
+
+[![CI](https://github.com/itsdarklikehell/pwnsorter/actions/workflows/ci.yml/badge.svg)](https://github.com/itsdarklikehell/pwnsorter/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/itsdarklikehell/pwnsorter)](LICENSE)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
+
 A python plugin for pwnagotchi to sort cracked access points and their passwords.
 
 
