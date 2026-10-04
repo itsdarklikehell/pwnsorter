@@ -1,18 +1,20 @@
 import sys, os
 from shutil import copyfile
 
-potfile_source = '/home/rizzo/wpa-sec.founds.potfile'
+HOME = os.path.expanduser("~")
+
+potfile_source = os.path.join(HOME, 'wpa-sec.founds.potfile')
 dlurl = 'https://wpa-sec.stanev.org/?api&dl=1'
 
 wpa_source = "/etc/wpa_supplicant/wpa_supplicant.conf"
 wpa_backup = "/tmp/wpa_supplicant.bak"
 wpa_tmp = "/tmp/wpa_supplicant.tmp"
 
-wificonfigstore_source = "/home/rizzo/WiFiConfigStore.xml"
+wificonfigstore_source = os.path.join(HOME, 'WiFiConfigStore.xml')
 wificonfigstore_backup = "/tmp/wificonfigstore.bak"
 wificonfigstore_tmp = "/tmp/wificonfigstore.tmp"
 
-wificonfigstoresoftap_source = "/home/rizzo/WiFiConfigStoreSoftAp.xml"
+wificonfigstoresoftap_source = os.path.join(HOME, 'WiFiConfigStoreSoftAp.xml')
 wificonfigstoresoftap_backup = "/tmp/wificonfigstoresoftap.bak"
 wificonfigstoresoftap_tmp = "/tmp/wificonfigstoresoftap.tmp"
 
