@@ -1,0 +1,2 @@
+# pwnsorter dependencies
+# Geen externe dependencies - standaard Python library
