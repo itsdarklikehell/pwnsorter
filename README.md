@@ -1,10 +1,84 @@
 # pwnsorter
-A python plugin for pwnagotchi to sort cracked access points and their passwords.
 
+[![CI](https://github.com/itsdarklikehell/pwnsorter/actions/workflows/ci.yml/badge.svg)](https://github.com/itsdarklikehell/pwnsorter/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/itsdarklikehell/pwnsorter)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
+
+A [pwnagotchi](https://github.com/evilsocket/pwnagotchi) plugin to sort cracked
+access points and their passwords from a potfile into `wpa_supplicant` config
+blocks.
+
+## What it does
+
+`potfilesorter.py` reads a WPA-Sec potfile, extracts BSSID + password pairs, and
+appends `network={...}` blocks to:
+
+- `/etc/wpa_supplicant/wpa_supplicant.conf`
+- `~/WiFiConfigStore.xml`
+- `~/WiFiConfigStoreSoftAp.xml`
+
+It skips networks already present in the config files.
+
+## Installation
+
+```bash
+git clone https://github.com/itsdarklikehell/pwnsorter.git
+cd pwnsorter
+```
+
+Copy `potfilesorter.py` to your pwnagotchi's plugins directory:
+
+```bash
+sudo cp potfilesorter.py /usr/local/lib/pwnagotchi/plugins/custom/
+sudo chmod +x /usr/local/lib/pwnagotchi/plugins/custom/potfilesorter.py
+```
+
+## Usage
+
+### Standalone
+
+```bash
+sudo python3 potfilesorter.py
+```
+
+### As a pwnagotchi plugin
+
+Add to `config.toml`:
+
+```toml
+[plugins.potfilesorter]
+enabled = true
+```
+
+## Potfile format
+
+Expected format (WPA-Sec potfile):
+
+```
+BSSID:password:latitude:longitude
+```
+
+Download your potfile from [WPA-Sec](https://wpa-sec.stanev.org/?api&dl=1) and
+place it at `/home/rizzo/wpa-sec.founds.potfile`.
+
+## Requirements
+
+- Python 3.8+
+- Root access (writes to `/etc/wpa_supplicant/`)
+
+## Testing
+
+```bash
+python3 -m pytest tests/ -v
+```
+
+## License
+
+GPL-3.0 (inherits Pwnagotchi's license).
 
 ---
 
-## 🎥 Gource Visualization
+## Gource Visualization
 
 De ontwikkelhistorie van dit project in een film:
 

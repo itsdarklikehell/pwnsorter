@@ -1,10 +1,15 @@
 name: CI
 on:
   push:
-    branches: ["master","main","master"]
+    branches: ["master", "main"]
   pull_request:
-    branches: ["master","main","master"]
+    branches: ["master", "main"]
   workflow_dispatch:
+
 jobs:
   ci:
     uses: itsdarklikehell/ci-templates/.github/workflows/ci-python.yml@v1
+    with:
+      python-versions: '["3.9", "3.10", "3.11", "3.12"]'
+      run-pytest: true
+      pytest-path: tests/
