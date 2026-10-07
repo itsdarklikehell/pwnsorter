@@ -10,6 +10,9 @@ jobs:
   ci:
     uses: itsdarklikehell/ci-templates/.github/workflows/ci-python.yml@v1
     with:
-      python-versions: '["3.9", "3.10", "3.11", "3.12"]'
-      run-pytest: true
-      pytest-path: tests/
+      python-version: "3.12"
+      manager: pip
+      lint: true
+      typecheck: false
+      test: true
+      build: false
